@@ -1,7 +1,8 @@
-import 'package:connect_with_people_app/features/authentication/screens/signup/verify_email.dart';
+import 'package:connect_with_people_app/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:connect_with_people_app/features/authentication/screens/signup/widgets/terms_and_conditions.dart';
 import 'package:connect_with_people_app/utils/constants/sizes.dart';
 import 'package:connect_with_people_app/utils/constants/text_strings.dart';
+import 'package:connect_with_people_app/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -11,13 +12,22 @@ class CSignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignupController());
+    //final _formKey = GlobalKey<FormState>();
     return Form(
+      key: controller.signupFormKey,
+      //key: _formKey,
       child: Column(
         children: [
+          /// First Name and Last Name
           Row(
             children: [
               Expanded(
                 child: TextFormField(
+                  controller: controller.firstName,
+                  validator:
+                      (value) =>
+                          CValidator.validateEmptyText('First name', value),
                   expands: false,
                   decoration: const InputDecoration(
                     labelText: CTexts.firstName,
@@ -29,6 +39,10 @@ class CSignupForm extends StatelessWidget {
 
               Expanded(
                 child: TextFormField(
+                  controller: controller.lastName,
+                  validator:
+                      (value) =>
+                          CValidator.validateEmptyText('Last name', value),
                   expands: false,
                   decoration: const InputDecoration(
                     labelText: CTexts.lastName,
@@ -42,6 +56,9 @@ class CSignupForm extends StatelessWidget {
 
           /// Username
           TextFormField(
+            controller: controller.username,
+            validator:
+                (value) => CValidator.validateEmptyText('Username', value),
             expands: false,
             decoration: const InputDecoration(
               labelText: CTexts.username,
@@ -52,6 +69,8 @@ class CSignupForm extends StatelessWidget {
 
           ///Email
           TextFormField(
+            controller: controller.email,
+            validator: (value) => CValidator.validateEmail(value),
             decoration: const InputDecoration(
               labelText: CTexts.email,
               prefixIcon: Icon(Iconsax.direct),
@@ -61,6 +80,8 @@ class CSignupForm extends StatelessWidget {
 
           /// Phone Number
           TextFormField(
+            controller: controller.phoneNumber,
+            validator: (value) => CValidator.validatePhoneNumber(value),
             decoration: const InputDecoration(
               labelText: CTexts.phoneNo,
               prefixIcon: Icon(Iconsax.call),
@@ -69,25 +90,48 @@ class CSignupForm extends StatelessWidget {
           const SizedBox(height: CSizes.spaceBtwInputFields),
 
           ///Password
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              labelText: CTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) => CValidator.validatePassword(value),
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
+                labelText: CTexts.password,
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                  onPressed:
+                      () =>
+                          controller.hidePassword.value =
+                              !controller.hidePassword.value,
+                  icon: Icon(
+                    controller.hidePassword.value
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye,
+                  ),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: CSizes.spaceBtwInputFields),
 
           /// Terms and Conditions Checkbox
-          CTermsAndConditions(),
+          const CTermsAndConditions(),
           const SizedBox(height: CSizes.spaceBtwSections),
 
           /// Sign Up Button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () => Get.to(() => const VerifyEmailScreen()),
+              onPressed: () => controller.signup(),
+
+              /*  onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  SignupController.instance.signup(
+                    controller.email.text.trim(),
+                    controller.password.text.trim(),
+                  );
+                }
+              },*/
               child: const Text(CTexts.createAccount),
             ),
           ),

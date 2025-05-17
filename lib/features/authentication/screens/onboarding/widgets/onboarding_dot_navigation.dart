@@ -1,4 +1,4 @@
-import 'package:connect_with_people_app/features/authentication/controllers/onboarding_controller.dart';
+import 'package:connect_with_people_app/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:connect_with_people_app/utils/constants/colors.dart';
 import 'package:connect_with_people_app/utils/constants/sizes.dart';
 import 'package:connect_with_people_app/utils/device/device_utility.dart';

@@ -24,4 +24,5 @@ class CImages {
       "assets/images/animations/resetEmailSent.gif";
   static const String welcomeScreen =
       "assets/images/getStarted_images/Get_started.png";
+  static const String processing = "assets/images/animations/Processing.gif";
 }
