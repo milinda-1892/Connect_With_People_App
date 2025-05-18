@@ -9,6 +9,7 @@ import 'package:app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:app/screens/myPolls.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,9 +41,9 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-    Placeholder(), // Replace with SearchScreen()
+    Placeholder(), // Search screen
     CreateScreen(),
-    Placeholder(), // Replace with NotificationScreen()
+    PollApp(),
     ProfileScreen(),
   ];
 
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.bar_chart),
-            label: 'Notifications',
+            label: 'My Polls',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],

@@ -1,3 +1,4 @@
+import 'package:app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/profile_screen.dart';
 import 'package:app/screens/home_screen.dart';
@@ -29,25 +30,22 @@ class EditProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: mobileBackgroundColor,
         elevation: 1,
         centerTitle: true,
         title: Text(
           'Edit Profile',
-          style: TextStyle(
-            color: Colors.blue,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: mobileBlueColor, fontWeight: FontWeight.bold),
         ),
-        iconTheme: IconThemeData(color: Colors.black), // Back icon color
+        iconTheme: IconThemeData(color: mobileBlueColor), // Back icon color
         actions: [
           IconButton(
-            icon: Icon(Icons.check, color: Colors.blue),
+            icon: Icon(Icons.check, color: mobileBlueColor),
             onPressed: () {
-              // Add your save logic here
+              // Save function
               Navigator.pop(context); // Close EditProfileScreen
             },
-          )
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -59,8 +57,8 @@ class EditProfileScreen extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 children: [
                   CircleAvatar(
-                    radius: 55,
-                    backgroundColor: Colors.blue.shade100,
+                    radius: 53,
+                    backgroundColor: mobileBlueColor,
                     child: CircleAvatar(
                       radius: 50,
                       backgroundImage: AssetImage('assets/avatar1.jpg'),
@@ -71,14 +69,10 @@ class EditProfileScreen extends StatelessWidget {
                     right: 4,
                     child: CircleAvatar(
                       radius: 14,
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.blue,
-                        size: 18,
-                      ),
+                      backgroundColor: mobileBackgroundColor,
+                      child: Icon(Icons.add, color: mobileBlueColor, size: 18),
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 24),
@@ -88,11 +82,17 @@ class EditProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 12),
               TextField(
-                decoration: inputDecoration('Email', hintText: 'example@gmail.com'),
+                decoration: inputDecoration(
+                  'Email',
+                  hintText: 'example@gmail.com',
+                ),
               ),
               SizedBox(height: 12),
               TextField(
-                decoration: inputDecoration('Phone No', hintText: '+94********'),
+                decoration: inputDecoration(
+                  'Phone No',
+                  hintText: '+94********',
+                ),
               ),
               SizedBox(height: 12),
               TextField(
@@ -100,7 +100,10 @@ class EditProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 12),
               TextField(
-                decoration: inputDecoration('Birthday', hintText: '__ / __ / ____'),
+                decoration: inputDecoration(
+                  'Birthday',
+                  hintText: '__ / __ / ____',
+                ),
               ),
             ],
           ),
