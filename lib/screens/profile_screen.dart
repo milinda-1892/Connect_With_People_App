@@ -1,4 +1,5 @@
 //import 'package:app/fonts/build_stat.dart';
+import 'package:app/screens/editProfile_screen.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -36,10 +37,19 @@ class ProfileScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.edit, color: mobileBlueColor),
+            child: IconButton(
+              icon: const Icon(Icons.edit, color: mobileBlueColor),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                );
+              },
+            ),
           ),
         ],
       ),
+
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -122,7 +132,7 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         backgroundColor: mobileBackgroundColor,
         currentIndex: 4,
 
@@ -143,7 +153,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
-      ),
+      ),*/
     );
   }
 

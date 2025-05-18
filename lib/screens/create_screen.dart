@@ -11,7 +11,7 @@ class CreateScreen extends StatelessWidget {
           child: Image.asset('assets/logo.png'),
         ),
         title: Text(
-          'My Profile',
+          'Create',
           style: TextStyle(fontWeight: FontWeight.bold, color: mobileBlueColor),
         ),
         centerTitle: true,
@@ -125,7 +125,7 @@ class CreateScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         currentIndex: 2,
         backgroundColor: Colors.white,
         selectedItemColor: Colors.blue,
@@ -142,7 +142,7 @@ class CreateScreen extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Stats'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
-      ),
+      ),*/
     );
   }
 }

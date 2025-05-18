@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
           child: Image.asset('assets/logo.png'),
         ),
         title: Text(
-          'My Profile',
+          'Connect with People',
           style: TextStyle(fontWeight: FontWeight.bold, color: mobileBlueColor),
         ),
         centerTitle: true,
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         backgroundColor: mobileBackgroundColor,
         currentIndex: 0,
 
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
-      ),
+      ),*/
     );
   }
 }

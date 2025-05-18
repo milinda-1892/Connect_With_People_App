@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:app/screens/profile_screen.dart';
+import 'package:app/screens/home_screen.dart';
+import 'package:app/main.dart';
 
 class EditProfileScreen extends StatelessWidget {
   final TextStyle labelStyle = TextStyle(
@@ -30,13 +32,6 @@ class EditProfileScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         centerTitle: true,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundImage: AssetImage('assets/logo.png'), // Your logo
-            backgroundColor: Colors.transparent,
-          ),
-        ),
         title: Text(
           'Edit Profile',
           style: TextStyle(
@@ -44,10 +39,14 @@ class EditProfileScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        iconTheme: IconThemeData(color: Colors.black), // Back icon color
         actions: [
           IconButton(
-            icon: Icon(Icons.menu, color: Colors.black),
-            onPressed: () {},
+            icon: Icon(Icons.check, color: Colors.blue),
+            onPressed: () {
+              // Add your save logic here
+              Navigator.pop(context); // Close EditProfileScreen
+            },
           )
         ],
       ),
@@ -106,21 +105,6 @@ class EditProfileScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: 4,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Messages'),
-          BottomNavigationBarItem(icon: Icon(Icons.add_circle), label: 'Add'),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Stats'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
       ),
     );
   }
