@@ -24,7 +24,7 @@ class ProfileScreen extends StatelessWidget {
       //backgroundColor: mobileBackgroundColor,
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(3.0),
           child: Image.asset('assets/logo.png'),
         ),
         title: Text(

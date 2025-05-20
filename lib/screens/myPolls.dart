@@ -34,10 +34,10 @@ class MyPollsScreen extends StatelessWidget {
       backgroundColor: mobileBackgroundColor,
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
-        elevation: 1,
+        elevation: 0,
         centerTitle: true,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(3.0),
           child: CircleAvatar(
             backgroundImage: AssetImage('assets/logo.png'),
             backgroundColor: mobileBackgroundColor,

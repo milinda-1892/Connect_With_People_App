@@ -7,11 +7,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(3.0),
           child: Image.asset('assets/logo.png'),
         ),
         title: Text(
-          'Connect with People',
+          'Home',
           style: TextStyle(fontWeight: FontWeight.bold, color: mobileBlueColor),
         ),
         centerTitle: true,
@@ -132,16 +132,13 @@ class PostCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Icon(Icons.favorite_border, color: mobileBlueColor),
-                  SizedBox(width: 16),
-                  Icon(Icons.share, color: mobileBlueColor),
-                ],
-              ),
+              Icon(Icons.favorite_border, color: mobileBlueColor),
+              Icon(Icons.share, color: mobileBlueColor), // Center icon
               Icon(Icons.comment, color: mobileBlueColor),
             ],
           ),
+
+          
           if (caption.isNotEmpty)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),

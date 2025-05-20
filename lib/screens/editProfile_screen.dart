@@ -61,7 +61,9 @@ class EditProfileScreen extends StatelessWidget {
                     backgroundColor: mobileBlueColor,
                     child: CircleAvatar(
                       radius: 50,
-                      backgroundImage: AssetImage('assets/avatar1.jpg'),
+                      backgroundImage: NetworkImage(
+                        'https://randomuser.me/api/portraits/men/11.jpg',
+                      ),
                     ),
                   ),
                   Positioned(
